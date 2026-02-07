@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects – ARCHIQ</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #000;
+            text-align: center;
+        }
+
+        /* NAVIGACIJA – ISTA KAO INDEX */
+        header nav {
+            display: flex;
+            justify-content: center;
+            padding: 1rem 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #000;
+            font-weight: 500;
+        }
+
+        /* SEKCIJA */
+        section {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        /* SLIDER */
+        .slider {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .project {
+            display: none;
+        }
+
+        .project.active {
+            display: block;
+        }
+
+        .project img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        .project h2 {
+            font-size: 1.3rem;
+            font-weight: normal;
+            margin: 0.5rem 0;
+        }
+
+        /* STRELICA */
+        .arrow {
+            font-size: 2.2rem;
+            margin-top: 2rem;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        footer {
+            padding: 2rem;
+            font-size: 0.85rem;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projekti.html">Projects</a></li>
+            <li><a href="Team.html">Team</a></li>
+            <li><a href="kontakt.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section>
+    <h1>Projects</h1>
+
+    <div class="slider">
+        <div class="project active">
+            <img src="images/project1.jpg" alt="Project 1">
+           
+        </div>
+
+        <div class="project">
+            <img src="images/project2.jpg" alt="Project 2"> 
+        </div>
+
+        <div class="project">
+            <img src="images/project3.jpg" alt="Project 3">   
+        </div>
+
+        <div class="project">
+            <img src="images/project4.jpg" alt="Project 4"> 
+        </div>
+
+        <div class="project">
+            <img src="images/project5.jpg" alt="Project 5">
+        </div>
+    </div>
+
+    <div class="arrow" onclick="nextProject()">→</div>
+</section>
+
+<footer>
+    ARCHIQ d.o.o. · Martinkovac 113/a · 51000 Rijeka · OIB: 09759110686
+</footer>
+
+<script>
+    let currentProject = 0;
+    const projects = document.querySelectorAll('.project');
+
+    function nextProject() {
+        projects[currentProject].classList.remove('active');
+        currentProject = (currentProject + 1) % projects.length;
+        projects[currentProject].classList.add('active');
+    }
+</script>
+
+</body>
+</html>
